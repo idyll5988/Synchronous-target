@@ -68,7 +68,7 @@ ui_print "▌*⛏️安全补丁=$(getprop ro.build.version.security_patch)*"
 ui_print "▌*🅰️Android版本=$(getprop ro.build.version.release)*" 
 ui_print "▌*🔋电池健康=$BATTERY_HEALTH%*"
 mkdir -p /data/adb/tricky_store
-pm list packages | sed 's/^package://; s/$/!/' | grep -v 'me.bmax.apatch\$' | grep -v 'com.android.patch\$' | grep -v 'com.google.android.gms\$' > /data/adb/tricky_store/target.txt\"
+pm list packages | sed 's/^package://; s/$/!/' | grep -v 'me.bmax.apatch\$' | grep -v 'com.android.patch\$' | grep -v 'com.google.android.gms\$' > /data/adb/tricky_store/target.txt
 cat /data/adb/tricky_store/target.txt
 ui_print "▌*🛠️完成优化*"
 
