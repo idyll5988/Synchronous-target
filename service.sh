@@ -18,19 +18,10 @@ installed_apps() {
         fi
     done
 }	
-remove_uninstalled_apps() {
-	CURRENT_PACKAGES=$(pm list packages | sed 's/^package://')
-	while read -r REMOVE_PACKAGE; do
-        if ! echo "$CURRENT_PACKAGES" | grep -q "$REMOVE_PACKAGE"; then
-            sed -i "/^$REMOVE_PACKAGE!$/d" "$TARGET_FILE"
-        fi
-    done < "$TARGET_FILE"
-}	
 while true; do
     screen_status=$(dumpsys window | grep "mScreenOn" | grep true)
     if [[ "${screen_status}" ]]; then
     installed_apps
-    remove_uninstalled_apps
 	fi
     local now=$(date +%s)
     sleep $(( interval - (now % interval) ))
