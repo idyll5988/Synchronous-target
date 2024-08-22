@@ -7,4 +7,4 @@ until [[ $(getprop sys.boot_completed) -eq 1 || $(getprop dev.bootcomplete) -eq 
 }
 sdcard_rw
 sleep 30
-su -c "sh -c \"pm list packages | sed 's/^package://; s/$/!/' > /data/adb/tricky_store/target.txt\"
+su -c "sh -c \"pm list packages | sed 's/^package://; s/$/!/' | grep -v 'me.bmax.apatch\$' > /data/adb/tricky_store/target.txt\"
