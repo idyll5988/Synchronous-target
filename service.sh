@@ -11,8 +11,8 @@ TARGET_FILE="/data/adb/tricky_store/target.txt"
 touch "$TARGET_FILE"
 while true; do
     screen_status=$(dumpsys window | grep "mScreenOn" | grep true)
-    if [[ "$screen_status" ]]; then
-    CURRENT_PACKAGES=$(pm list packages -f | sed 's/^package://; s/$/!/' | grep -v 'me.bmax.apatch\$' | grep -v 'com.android.patch\$' | grep -v 'com.google.android.gms\$')
+    if [[ "${screen_status}" ]]; then
+	CURRENT_PACKAGES=$(pm list packages | sed 's/^package://' | grep -v 'me.bmax.apatch\$' | grep -v 'com.android.patch\$' | grep -v 'com.google.android.gms\$')
     EXISTING_PACKAGES=$(grep -v '^#' "$TARGET_FILE")
     for NEW_PACKAGE in $CURRENT_PACKAGES; do
         if ! echo "$EXISTING_PACKAGES" | grep -q "$NEW_PACKAGE"; then
