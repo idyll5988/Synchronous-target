@@ -11,6 +11,6 @@ Automatically recursively detects and automatically updates the target.txt file 
 
 自动循环检测，并在安装或卸载应用时自动更新 target.txt 文件
 
-Each loop checks the names of currently installed packages and compares them with the ones in target.txt. If it finds a newly installed application, it adds the package name to target.txt; if it finds an uninstalled application, it removes the corresponding package name from target.txt
+Each loop will check the currently installed package name and compare it with the package name in target.txt. If a newly installed application is found, it will add the package name to target.txt;
 
-每次循环都会检查当前已安装的包名，并与 target.txt 中的包名进行比较。如果发现新安装的应用，它会将包名添加到 target.txt 中；如果发现已卸载的应用，它会从 target.txt 中删除相应的包名
+每次循环都会检查当前已安装的包名，并与 target.txt 中的包名进行比较。如果发现新安装的应用，它会将包名添加到 target.txt 中；
